@@ -13,9 +13,7 @@
 #include<chrono>
 #include<thread>
 
-//#include"global_var.h"
-//using namespace checking_operation;
-//sing namespace saving_operation;
+
 using namespace std::this_thread;
 using namespace std::chrono;
 using namespace std;
@@ -27,29 +25,32 @@ using namespace std;
 
 namespace record
 {
-	static bank_account *mybank = new bank_account;
-	void create_checking_DB(bank_account& new_account);//function to create a new customer
-	void create_saving_DB(bank_account& new_account);
-	void update_SAV(bank_account& update);
-	void update_CHE(bank_account& update);
+	//static bank_account mybank;
+
+	void create_checking_DB(bank_account& mybank);//function to create a new customer
+	void create_saving_DB(bank_account &mybank);
+	void update_SAV(bank_account& mybank);
+	void update_CHE(bank_account& mybank);
 	void new_log(client_info& info, std::string& un, std::string& pw);
 	
 	bool check_login(std::string& uname, std::string pword);
 	
-	bool SAV_exist(bank_account& bank);	// check wether the saving database exist
-	bool CHE_exist(bank_account& bank);// check wether the checking data base exist
-	bank_account get_data_DB(bank_account& bank);// retrieve data from database
+	bool SAV_exist(bank_account& mybank);	// check wether the saving database exist
+	bool CHE_exist(bank_account& mybank);// check wether the checking data base exist
+	bank_account & get_data_DB(bank_account& mybank);// retrieve data from database
+	
 }
 
 namespace user_interface
 {
-	void checking_account();
-	void saving_Account();
-	void menu();
+	void checking_account(bank_account& mybank);
+	void saving_Account(bank_account& mybank);
+	void menu(bank_account &mybank);
 	void register_log();
 	void login();
 	void intro();
-	void check_connection();
+	void check_connection(bank_account& mybank);
+	int logout();
 }
 
 #endif // !client_file_H

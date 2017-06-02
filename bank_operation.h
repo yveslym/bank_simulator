@@ -12,16 +12,16 @@
 //using namespace std;
 namespace checking_operation
 {
-	void view_balance(bank_account  client);
-	void withdraw_money(bank_account & client);
-	void deposit(bank_account& client);
+	void view_balance(bank_account& mybank);
+	void withdraw_money(bank_account& mybank);
+	void deposit(bank_account& mybank);
 	void view_transaction();
 
 }
 namespace saving_operation
 {
-	void view_balance(bank_account & client);
-	void withdraw_money(bank_account& client);
-	void deposit(bank_account& client);
-	void transaction();
+	void view_balance(bank_account& mybank);
+	void withdraw_money(bank_account& mybank);
+	void deposit(bank_account& mybank);
+	void transaction(bank_account& mybank);
 }
